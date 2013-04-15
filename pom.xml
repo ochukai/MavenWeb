@@ -14,6 +14,33 @@
 		<struts.version>2.3.4.1</struts.version>
 		<hibernate.version>4.1.8.Final</hibernate.version>
 	</properties>
+		
+	<repositories>
+		<repository>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>springsource-repo</id>
+			<name>SpringSource Repository</name>
+			<url>http://repo.springsource.org/release</url>
+		</repository>
+		<repository>
+			<id>JBoss releases</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+		</repository>
+		<repository>
+			<id>mrrior</id>
+			<url>http://mirrors.ibiblio.org/maven2/</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<!-- struts2 -->
@@ -105,6 +132,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+		
 		<!--logger -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -121,6 +149,7 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
 		</dependency>
+		
 		<!--test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -135,34 +164,6 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>MavenCentral</id>
-			<name>Maven repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>springsource-repo</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/release</url>
-		</repository>
-		<repository>
-			<id>JBoss releases</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-		</repository>
-		<repository>
-			<id>mrrior</id>
-			<url>http://mirrors.ibiblio.org/maven2/</url>
-		</repository>
-	</repositories>
-
 
 	<build>
 		<finalName>MavenWeb</finalName>
