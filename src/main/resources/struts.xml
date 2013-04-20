@@ -13,10 +13,41 @@
 	<!-- 设置Web应用的默认Locale为zh_CN -->
 	<constant name="struts.locale" value="zh_CN" />
 
+	<package name="onakaumi-default" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="onakaumiDefaultStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="modelDriven">
+					<param name="refreshModelBeforeResult">true</param>
+				</interceptor-ref>
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="multiselect" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="debugging" />
+			</interceptor-stack>
+		</interceptors>
 
-	<package name="Akiumi" extends="struts-default" namespace="/">
-		<action name="front_*" class="indexAction" method="{1}">
-			<result>/index.jsp</result>
-		</action>
+		<default-interceptor-ref name="onakaumiDefaultStack" />
 	</package>
+
+	<include file="struts2/struts-ajax.xml"></include>
+	<include file="struts2/struts-akiumi.xml"></include>
+
 </struts>

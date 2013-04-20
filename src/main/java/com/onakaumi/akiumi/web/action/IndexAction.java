@@ -1,10 +1,11 @@
-package com.onakaumi.web.action;
+package com.onakaumi.akiumi.web.action;
 
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class IndexAction {
-	public String index(){
+
+	public String hello() {
 		System.out.println("index``````````````````");
 		return "success";
 	}

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.onakaumi.web.action;
+package com.onakaumi.akiumi.web.action;
 
 /**
  * @author Onakaumi
