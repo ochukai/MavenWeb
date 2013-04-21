@@ -8,9 +8,9 @@
 <title>Add User</title>
 </head>
 <body>
-	<s:form action="user-add">
+	<s:form action="user-add" method="post" validate="true" namespace="/">
 		<s:textfield name="id" label="Id"></s:textfield>
-		<s:password  name="password" label="Password"></s:password>
+		<s:password name="password" label="Password"></s:password>
 		<s:textfield name="name" label="Name"></s:textfield>
 		<s:submit></s:submit>
 	</s:form>

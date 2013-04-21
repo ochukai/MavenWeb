@@ -12,6 +12,8 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 设置Web应用的默认Locale为zh_CN -->
 	<constant name="struts.locale" value="zh_CN" />
+	<!-- 设置i18n的位置和前缀 -->
+	<constant name="struts.custom.i18n.resources" value="struts2/global" />
 
 	<package name="onakaumi-default" extends="struts-default">
 		<interceptors>
@@ -35,6 +37,7 @@
 				</interceptor-ref>
 				<interceptor-ref name="conversionError" />
 				<interceptor-ref name="validation">
+					<param name="validateAnnotatedMethodOnly">true</param>
 					<param name="excludeMethods">input,back,cancel,browse</param>
 				</interceptor-ref>
 				<interceptor-ref name="workflow">
