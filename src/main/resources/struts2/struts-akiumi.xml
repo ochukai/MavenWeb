@@ -6,6 +6,11 @@
 		<action name="hello" class="indexAction" method="hello">
 			<result>/WEB-INF/content/hello.jsp</result>
 		</action>
+
+		<action name="*-*" class="{1}Action" method="{2}">
+			<result>/WEB-INF/content/{1}/{2}.jsp</result>
+			<result name="list" type="redirectAction">{1}-index</result>
+		</action>
 	</package>
 
 </struts>

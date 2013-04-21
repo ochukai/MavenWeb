@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.onakaumi.core.base.model.AbstractModel;
 
@@ -20,10 +22,38 @@ import com.onakaumi.core.base.model.AbstractModel;
 @Table(name = "aki_user")
 public class User extends AbstractModel<String> {
 	private static final long serialVersionUID = 1L;
-	
+
+	@NotNull(message = "用户名不能为空！")
+	@Size(max = 16, min = 5, message = "5-16")
 	private String id;
+
+	@Size(max = 16, min = 5, message = "")
 	private String password;
+
+	@NotNull
+	@Size(min = 2, max = 6)
+	private String name;
+	
 	private Date lastLogin;
+
+	/**
+	 * @param id
+	 * @param password
+	 * @param name
+	 */
+	public User(String id, String password, String name) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+	}
+
+	/**
+	 * 
+	 */
+	public User() {
+		super();
+	}
 
 	/**
 	 * @return the id

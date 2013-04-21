@@ -1,4 +1,4 @@
 
 <%
-	response.sendRedirect("hello");
+	response.sendRedirect("user-index");
 %>
