@@ -8,8 +8,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.onakaumi.core.base.model.AbstractModel;
 
@@ -23,18 +21,20 @@ import com.onakaumi.core.base.model.AbstractModel;
 public class User extends AbstractModel<String> {
 	private static final long serialVersionUID = 1L;
 
-	@NotNull(message = "用户名不能为空！")
-	@Size(max = 16, min = 5, message = "5-16")
 	private String id;
 
-	@Size(max = 16, min = 5, message = "")
 	private String password;
 
-	@NotNull
-	@Size(min = 2, max = 6)
 	private String name;
-	
+
 	private Date lastLogin;
+
+	/**
+	 * 
+	 */
+	public User() {
+		super();
+	}
 
 	/**
 	 * @param id
@@ -49,41 +49,12 @@ public class User extends AbstractModel<String> {
 	}
 
 	/**
-	 * 
-	 */
-	public User() {
-		super();
-	}
-
-	/**
 	 * @return the id
 	 */
+	@Override
 	@Id
 	public String getId() {
 		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @param password
-	 *            the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	/**
@@ -94,11 +65,50 @@ public class User extends AbstractModel<String> {
 	}
 
 	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	@Override
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
 	 * @param lastLogin
 	 *            the lastLogin to set
 	 */
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param password
+	 *            the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

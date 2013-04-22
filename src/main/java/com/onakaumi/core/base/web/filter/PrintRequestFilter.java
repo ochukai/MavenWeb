@@ -26,15 +26,16 @@ public class PrintRequestFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
-		
-		log.debug(request.getRequestURL() + ", encoding: " + response.getCharacterEncoding());
-		
+
+		log.debug(request.getRequestURL() + ", encoding: "
+				+ response.getCharacterEncoding());
+
 		chain.doFilter(req, res);
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		
+		log.debug("init");
 	}
 
 }

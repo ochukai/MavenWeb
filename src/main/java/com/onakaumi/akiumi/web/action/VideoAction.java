@@ -5,8 +5,8 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.onakaumi.akiumi.model.User;
-import com.onakaumi.akiumi.service.UserService;
+import com.onakaumi.akiumi.model.Video;
+import com.onakaumi.akiumi.service.VideoService;
 import com.onakaumi.core.base.service.IService;
 import com.onakaumi.core.base.web.action.BaseAction;
 
@@ -17,19 +17,19 @@ import com.onakaumi.core.base.web.action.BaseAction;
  */
 @Controller
 @Scope("prototype")
-public class UserAction extends BaseAction<User, String> {
+public class VideoAction extends BaseAction<Video, Integer> {
 	private static final long serialVersionUID = 1L;
-	
-	private UserService userSerice;
+
+	private VideoService videoService;
 
 	@Resource
-	public void setUserSerice(UserService userSerice) {
-		this.userSerice = userSerice;
+	public void setVideoService(VideoService videoService) {
+		this.videoService = videoService;
 	}
 
 	@Override
-	protected IService<User, String> service() {
-		return userSerice;
+	protected IService<Video, Integer> service() {
+		return videoService;
 	}
 
 }

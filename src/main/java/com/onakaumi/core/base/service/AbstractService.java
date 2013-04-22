@@ -18,26 +18,26 @@ public abstract class AbstractService<T extends AbstractModel<ID>, ID extends Se
 	/**
 	 * @return
 	 */
-	protected abstract IGenericDAO<T, ID> getGenericDAO();
+	protected abstract IGenericDAO<T, ID> dao();
 
 	@Override
 	public ID add(T entity) {
-		return getGenericDAO().save(entity);
+		return dao().save(entity);
 	}
 
 	@Override
 	public int findCount(Criterion... criterions) {
-		return getGenericDAO().countByCriteria(criterions);
+		return dao().countByCriteria(criterions);
 	}
 
 	@Override
 	public List<T> findAll(Order order) {
-		return getGenericDAO().queryAll(order);
+		return dao().queryAll(order);
 	}
 
 	@Override
 	public T findByIdentity(ID id) {
-		return getGenericDAO().queryById(id);
+		return dao().queryById(id);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public abstract class AbstractService<T extends AbstractModel<ID>, ID extends Se
 
 		Pager<T> pager = new Pager<T>(findCount(), rows, page);
 
-		List<T> list = getGenericDAO().queryByCriteria(pager.getBeginIndex(),
+		List<T> list = dao().queryByCriteria(pager.getBeginIndex(),
 				pager.getPageSize(), order, criterions);
 
 		pager.setList(list);
@@ -55,18 +55,18 @@ public abstract class AbstractService<T extends AbstractModel<ID>, ID extends Se
 
 	@Override
 	public void modify(T entity) {
-		getGenericDAO().update(entity);
+		dao().update(entity);
 	}
 
 	@Override
 	public boolean remove(ID id) {
-		int i = getGenericDAO().deleteById(id);
+		int i = dao().deleteById(id);
 		return i == 1 ? true : false;
 	}
 
 	@Override
 	public int executeHqlUpdate(String hql, Object... params) {
-		return getGenericDAO().execHQL(hql, params);
+		return dao().execHQL(hql, params);
 	}
 
 }

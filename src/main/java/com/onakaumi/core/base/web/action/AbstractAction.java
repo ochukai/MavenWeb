@@ -1,38 +1,19 @@
 package com.onakaumi.core.base.web.action;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.onakaumi.core.base.model.AbstractModel;
-import com.onakaumi.core.base.web.action.support.ObjectSupportAction;
+import com.onakaumi.core.base.web.action.support.DataSupportAction;
 
 /**
- * 默认实现  七个方法。
+ * 默认实现 七个方法。
  * 
  * @author Onakaumi
  * @since 2013-4-21 上午12:56:40
- *
+ * 
  * @param <T>
  */
 public abstract class AbstractAction<T extends AbstractModel<?>> extends
-		ObjectSupportAction<T> implements IAction, SessionAware {
+		DataSupportAction<T> implements IAction {
 	private static final long serialVersionUID = 1L;
-
-	private Map<String, Object> session;
-
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-
-	// **************************************************
-	// **************************************************
-	// **************************************************
 
 	@Override
 	public String index() {

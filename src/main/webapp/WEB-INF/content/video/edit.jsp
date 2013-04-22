@@ -5,13 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Edit User</title>
+<title>Edit Video</title>
 </head>
 <body>
-	<s:form action="user-update" method="post" validate="true" namespace="/">
-		<s:textfield name="id" label="Id"></s:textfield>
-		<s:textfield name="name" label="Name"></s:textfield>
-		<s:submit></s:submit>
+	<s:form action="video-update" method="post" namespace="/">
+		<s:textfield name="name" label="Name" />
+		<s:textfield name="path" label="Path" />
+		<s:textfield name="description" label="Desc" />
+		<s:textfield name="hits" label="Hits" />
+		<s:submit/>
 	</s:form>
 </body>
 </html>

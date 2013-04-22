@@ -8,14 +8,52 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+@SuppressWarnings("unchecked")
 public class BeanUtil {
 
 	public static Logger logger = Logger.getLogger(BeanUtil.class);
+
+	/**
+	 * 根据泛型类型实例化对象
+	 * 
+	 * @return 泛型类型对象
+	 * @throws Exception
+	 */
+	public static <T> T instance(Class<T> clazz) {
+		try {
+			return clazz.newInstance();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * 得到第一个泛型类型
+	 * 
+	 * @param clazz
+	 * @return
+	 */
+	public static <T> Class<T> retrieveGenericType(Class<?> clazz) {
+		return retrieveGenericType(clazz, 0);
+	}
+
+	/**
+	 * 得到第i-1个泛型类型
+	 * 
+	 * @param clazz
+	 * @return
+	 */
+
+	public static <T> Class<T> retrieveGenericType(Class<?> clazz, int i) {
+		return (Class<T>) ((ParameterizedType) clazz.getGenericSuperclass())
+				.getActualTypeArguments()[i];
+	}
 
 	/**
 	 * 把src中不为null的属性赋值给dest（dest可能所有的属性都不为空）

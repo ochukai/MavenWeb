@@ -9,14 +9,18 @@
 </head>
 <body>
 	<h1>
-		<a href="user-editNew">Add User</a>
+		<a href="video-editNew">Add Video</a>
 	</h1>
-
+	
 	<s:iterator value="pager.list">
-		<s:property value="name" />-<a href="user-show?id=${id }"><s:property
-				value="id" /></a>-<s:property value="password" />-
-				<a href="user-edit?id=${id }">Edit</a>-
-				<a href="user-delete?id=${id }">Delete</a>
+		<s:property value="name" />-
+		<a href="video-show?id=${id }"><s:property value="id" /></a>-
+		<s:property value="description" />-
+		<s:property value="path" />-
+		<s:property value="hits" />-
+		
+		<a href="video-edit?id=${id }">Edit</a>-
+		<a href="video-delete?id=${id }">Delete</a>
 		<br />
 	</s:iterator>
 

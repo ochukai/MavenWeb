@@ -7,25 +7,21 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public enum TimeFormat {
-	Date("yyyy-MM-dd"),
+	Y_M_D("yyyy-MM-dd"),
 
-	DateTime_12h("yyyy-MM-dd hh:mm:ss"),
+	Y_M_D_h_M_S("yyyy-MM-dd hh:mm:ss"),
 
-	DateTime_24h("yyyy-MM-dd HH:mm:ss"),
+	Y_M_D_H_M_S("yyyy-MM-dd HH:mm:ss"),
 
-	ISO8601Long_LongFormZone("yyyy-MM-dd'T'HH:mm:ssz"),
+	YMDHMSZ("yyyyMMddHHmmssZ"),
 
-	ISO8601Long_RFC822Zone("yyyy-MM-dd'T'HH:mm:ssZ"),
+	h_M_S("hh:mm:ss"),
 
-	ISO8601Short("yyyyMMddHHmmssZ"),
+	H_M_S("HH:mm:ss"),
 
-	TimeLong_12h("hh:mm:ss"),
+	h_M("hh:mm"),
 
-	TimeLong_24h("HH:mm:ss"),
-
-	TimeShort_12h("hh:mm"),
-
-	TimeShort_24h("HH:mm");
+	H_M("HH:mm");
 
 	private final DateFormat format;
 
